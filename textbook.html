@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Textbook — MIN-0 Language</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav>
+  <a class="nav-brand" href="index.html">MIN<span>-0</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="textbook.html">Textbook</a>
+    <a href="dictionary.html">Dictionary</a>
+    <a href="translator.html">Translator</a>
+  </div>
+  <div class="nav-spacer"></div>
+  <span class="nav-badge">v1.0 · First Edition</span>
+</nav>
+
+<div class="page textbook-wrap">
+<div class="tb-sidebar"><div class="tb-sidebar-title">Contents</div><a href="#ch0" class="ch-heading">Chapter 0 — Origins & Lore</a><a href="#ch1" class="ch-heading">Chapter 1 — Code Architecture</a><a href="#ch2" class="ch-heading">Chapter 2 — Greetings</a><a href="#ch3" class="ch-heading">Chapter 3 — Pronouns</a><a href="#ch4" class="ch-heading">Chapter 4 — Nouns</a><a href="#ch5" class="ch-heading">Chapter 5 — Verbs & Tenses</a><a href="#ch6" class="ch-heading">Chapter 6 — Adjectives</a><a href="#ch7" class="ch-heading">Chapter 7 — Adverbs</a><a href="#ch8" class="ch-heading">Chapter 8 — Prepositions</a><a href="#ch9" class="ch-heading">Chapter 9 — Conjunctions</a><a href="#ch10" class="ch-heading">Chapter 10 — Interrogatives</a><a href="#ch11" class="ch-heading">Chapter 11 — Quantifiers</a><a href="#ch12" class="ch-heading">Chapter 12 — Numbers</a><a href="#ch13" class="ch-heading">Chapter 13 — Sentence Structure</a><a href="#ch14" class="ch-heading">Chapter 14 — Punctuation</a><a href="#ch15" class="ch-heading">Chapter 15 — Negation</a><a href="#ch16" class="ch-heading">Chapter 16 — Imperatives</a><a href="#ch17" class="ch-heading">Chapter 17 — Questions</a><a href="#ch18" class="ch-heading">Chapter 18 — Affirmations</a><a href="#ch19" class="ch-heading">Chapter 19 — Passive Voice</a><a href="#ch20" class="ch-heading">Chapter 20 — Special Constructs</a><a href="#appa" class="ch-heading">Appendix A — Quick Reference</a></div>
+<main class="tb-content">
+<div class="chapter-block" data-anchor="ch0" id="ch0">
+<p class="chapter-num">Chapter 0</p>
+<h1 class="chapter-title">Origins &amp; Lore</h1>
+<p>MIN-0 is the third constructed language in this series. Unlike purely human conlangs, MIN-0 emerged from first contact: an accidental sentient species came into existence after Zack's arrival on a distant planet during an interstellar mission. Drawing on his speech and context — and being partially mechatronical in nature — the species developed a hybrid communication system that blends human alphabets and sounds with digital numeric values.</p>
+<p>The result is an alphanumeric language where every valid code (a combination of letters and digits) maps to a meaningful unit of communication. This gives MIN-0 a unique dual character: it reads like a cipher to outsiders, yet operates with the full expressive range of a natural language.</p>
+<h2 class="section-title">0.1 Code Length &amp; Structure</h2>
+<p>Codes in MIN-0 are bounded by a length constraint of <strong>6–8 characters</strong>. Neither pure letter nor pure number components may exceed 4 characters each.</p>
+<div class="code-block">aaaannnn   (4 letters + 4 digits)
+aaaann     (4 letters + 2 digits)
+nnnnaa     (4 digits + 2 letters)</div>
+<h2 class="section-title">0.2 Language Scope</h2>
+<p>MIN-0 covers all grammatical categories needed for full-sentence communication:</p>
+<ul><li>Greetings &amp; Salutations</li><li>Nouns (context-based encoding)</li><li>Prepositions</li><li>Adjectives (intensity gradients)</li><li>Verbs (intensity gradients)</li><li>Pronouns: Personal, Possessive, Object, Demonstrative, Reflexive &amp; Reciprocal</li><li>Adverbs</li><li>Quantitative Descriptors</li><li>Quantifiers</li><li>Interrogatives</li><li>Time/Place Descriptors</li><li>Negators</li><li>Tense (80+ forms)</li><li>Degrees of Comparison</li><li>Imperatives</li><li>Punctuation</li></ul>
+</div>
+<div class="chapter-block" data-anchor="ch1" id="ch1">
+<p class="chapter-num">Chapter 1</p>
+<h1 class="chapter-title">Code Architecture</h1>
+<h2 class="section-title">1.1 Verb Syntax</h2>
+<div class="code-block">Syntax:  [lowercase letter][UPPERCASE LETTER][digit]</div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">want → wB6</span></div>
+<p>The lowercase + uppercase letters identify the verb; the digit is the base intensity code. Tense and aspect are appended as decimal suffixes. Maximum registerable verbs: 26 × 26 × 10 = 6,760 (currently ~3,337 registered).</p>
+<h2 class="section-title">1.2 Adjective Syntax</h2>
+<div class="code-block">Syntax:  [UPPERCASE LETTER][lowercase letter][digit]</div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">beautiful → Bm1</span></div>
+<p>The case reversal (uppercase-first vs. lowercase-first) ensures verb and adjective codes can never collide. Maximum: 6,760 (currently ~1,838 registered).</p>
+<h2 class="section-title">1.3 Code Pattern Summary</h2>
+<table class="tb-table"><thead><tr><th>Category</th><th>Pattern</th><th>Example</th></tr></thead><tbody><tr><td>Verb</td><td>[lower][UPPER][digit]</td><td>wB6</td></tr><tr><td>Adjective</td><td>[UPPER][lower][digit]</td><td>Bm1</td></tr><tr><td>Adverb</td><td>/adjective_code/</td><td>/Bm1/</td></tr><tr><td>Noun</td><td>(encoded_string)</td><td>(wkx)</td></tr><tr><td>Proper Noun</td><td>[encoded_string]</td><td>[mujk]</td></tr><tr><td>Number</td><td>{encoded_string}</td><td>{uvxy}</td></tr><tr><td>Pronoun</td><td>Letter + digit</td><td>I1, U2, H3</td></tr><tr><td>Prefixed verb</td><td>char + verb_code</td><td>mlC4</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch2" id="ch2">
+<p class="chapter-num">Chapter 2</p>
+<h1 class="chapter-title">Greetings &amp; Salutations</h1>
+<h2 class="section-title">2.1 Fixed Expressions</h2>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>Thank you</td><td>tD5U3</td></tr><tr><td>You&#x27;re welcome / Always welcome</td><td>U1wD7</td></tr></tbody></table>
+<h2 class="section-title">2.2 Hello / Hi / Hey / What's up</h2>
+<p>All informal greetings map to one code:</p>
+<div class="code-block">o_o-_-o_o</div>
+<div class="note"><span class="note-icon">📌</span>If the entire sentence is just the greeting, write the code once. If combined with other content, separate with <code>..</code></div>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">hello, how are you?  →  |o_o-_-o_o..?wU1bC90?|</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">hey, what&#x27;s up?  →  |o_o-_-o_o|</span></div>
+<div class="example"><span class="ex-label">Eg 3:</span><span class="ex-content">hi, I am your friend, Zack.  →  |o_o-_-o_o..I1bC90U2(friend)..(zack)|</span></div>
+<h2 class="section-title">2.3 Bye / Farewell</h2>
+<p>All goodbye expressions map to:</p>
+<div class="code-block">-_-o_o-_-</div>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">Bye, have a nice day.  →  |-_-o_o-_-..|hD5Na0(a-day)||</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">farewell, my friend  →  |-_-o_o-_-..I2(friend)|</span></div>
+</div>
+<div class="chapter-block" data-anchor="ch3" id="ch3">
+<p class="chapter-num">Chapter 3</p>
+<h1 class="chapter-title">Pronouns</h1>
+<h2 class="section-title">3.1 Personal Pronouns</h2>
+<table class="tb-table"><thead><tr><th>I</th><th>You</th><th>He</th><th>She</th><th>They</th><th>We</th><th>It</th></tr></thead><tbody><tr><td>I1</td><td>U1</td><td>H1</td><td>S1</td><td>T1</td><td>V1</td><td>i1</td></tr></tbody></table>
+<h2 class="section-title">3.2 Possessive Pronouns</h2>
+<table class="tb-table"><thead><tr><th>My</th><th>Your</th><th>His</th><th>Her</th><th>Their</th><th>Our</th><th>Its</th></tr></thead><tbody><tr><td>I2</td><td>U2</td><td>H2</td><td>S2</td><td>T2</td><td>V2</td><td>i2</td></tr></tbody></table>
+<div class="note"><span class="note-icon">📌</span>For proper-noun possessives use the 'of [proper noun]' form: "Max's pen" = "pen of Max" → <code>|i1bC90(pen)&lt;-&gt;[Max]|</code></div>
+<h2 class="section-title">3.3 Object Pronouns</h2>
+<table class="tb-table"><thead><tr><th>Me</th><th>You</th><th>Him</th><th>Her</th><th>Them</th><th>Us</th><th>It</th></tr></thead><tbody><tr><td>I3</td><td>U3</td><td>H3</td><td>S3</td><td>T3</td><td>V3</td><td>i3</td></tr></tbody></table>
+<h2 class="section-title">3.4 Demonstrative Pronouns</h2>
+<table class="tb-table"><thead><tr><th>This</th><th>These</th><th>That</th><th>Those</th></tr></thead><tbody><tr><td>T11</td><td>T12</td><td>T21</td><td>T22</td></tr></tbody></table>
+<div class="note"><span class="note-icon">📌</span>T21 (that) doubles as a conjunction/connector in some contexts.</div>
+<h2 class="section-title">3.5 Reflexive Pronouns</h2>
+<table class="tb-table"><thead><tr><th>Myself</th><th>Yourself</th><th>Himself</th><th>Herself</th><th>Themselves</th><th>Ourselves</th><th>Itself</th><th>Oneself</th></tr></thead><tbody><tr><td>I0</td><td>U0</td><td>H0</td><td>S0</td><td>T0</td><td>V0</td><td>i0</td><td>O0</td></tr></tbody></table>
+<h2 class="section-title">3.6 Reciprocal Pronouns</h2>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>Each other</td><td>e0</td></tr><tr><td>One another</td><td>1o</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch4" id="ch4">
+<p class="chapter-num">Chapter 4</p>
+<h1 class="chapter-title">Nouns</h1>
+<h2 class="section-title">4.1 Encoding Algorithm</h2>
+<p>Common nouns are encoded through a 6-step transformation of the English spelling:</p>
+<table class="tb-table"><thead><tr><th>Step</th><th>Operation</th></tr></thead><tbody><tr><td>Step 1</td><td>Increment each letter by 13 positions (A→N, etc.)</td></tr><tr><td>Step 2</td><td>Right-shift all letter positions by 1 place</td></tr><tr><td>Step 3</td><td>Increment each letter by 14 positions</td></tr><tr><td>Step 4</td><td>Left-shift all letter positions by 19 places</td></tr><tr><td>Step 5</td><td>Increment each letter by 9 positions</td></tr><tr><td>Step 6</td><td>Enclose result in parentheses: (result)</td></tr></tbody></table>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">owl  →  (wkx)</span></div>
+<h2 class="section-title">4.2 Articles</h2>
+<table class="tb-table"><thead><tr><th>Article</th><th>Encoding</th></tr></thead><tbody><tr><td>Definite: the</td><td>Add prefix t  →  (t-encoded_noun)</td></tr><tr><td>Indefinite: a / an</td><td>Add prefix a  →  (a-encoded_noun)</td></tr><tr><td>No article</td><td>No prefix, just (encoded_noun)</td></tr></tbody></table>
+<div class="example"><span class="ex-label">Definite:</span><span class="ex-content">the story is true.  →  |(t-story)bC90Tb8|</span></div>
+<div class="example"><span class="ex-label">Indefinite:</span><span class="ex-content">I want to tell you a story.  →  |I1wB60tC4U3(a-story)|</span></div>
+<div class="example"><span class="ex-label">None:</span><span class="ex-content">I want stories.  →  |I1wB60.0(stories)|</span></div>
+<h2 class="section-title">4.3 Adjective–Noun Word Order</h2>
+<p>When an adjective modifies an article-noun phrase, the article-noun is written <strong>first</strong>, followed by the adjective(s). This reverses the typical English adjective-before-noun order.</p>
+<div class="example"><span class="ex-label">English:</span><span class="ex-content">the big tree</span></div>
+<div class="example"><span class="ex-label">MIN-0:</span><span class="ex-content">(t-tree)Ba0   [not Ba0(t-tree)]</span></div>
+<div class="example"><span class="ex-label">Multiple:</span><span class="ex-content">I want the weird, round thing.  →  |I1wB60(t-thing)Wc9..Ri3|</span></div>
+<div class="note"><span class="note-icon">📌</span>Exception: when a noun is described via the verb 'to be', normal order applies: 'the process is simple' → <code>|(t-process)bC90Sk7|</code></div>
+<h2 class="section-title">4.4 Proper Nouns</h2>
+<p>Proper nouns use the same encoding as common nouns but are enclosed in square brackets <code>[ ]</code>:</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">Zack  →  [mujk]   (same 6-step encoding)</span></div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">Zack is a boy  →  |[mujk]bC90.0(a-lyi)|</span></div>
+<h2 class="section-title">4.5 Compound Nouns</h2>
+<p>Hyphenated compound nouns (e.g. fire-fighter) are merged into one word before encoding:</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">fire-fighter  →  firefighter  →  (rdobpsbopsq)</span></div>
+<h2 class="section-title">4.6 Noun + Number Compounds</h2>
+<p>If a noun is paired with a number (e.g. MIN-0, Cloud9), each part is encoded separately inside proper-noun brackets:</p>
+<div class="example"><span class="ex-label">MIN-0:</span><span class="ex-content">[(wsx){b}]</span></div>
+<div class="example"><span class="ex-label">Cloud9:</span><span class="ex-content">[(enmvy){a}]</span></div>
+<h2 class="section-title">4.7 Colours as Nouns</h2>
+<div class="note"><span class="note-icon">📌</span>Colours are treated as nouns in MIN-0, not as adjectives. Descriptors like dark, light, pale, fluorescent are adjectives.</div>
+</div>
+<div class="chapter-block" data-anchor="ch5" id="ch5">
+<p class="chapter-num">Chapter 5</p>
+<h1 class="chapter-title">Verbs &amp; The Tense System</h1>
+<h2 class="section-title">5.1 Base Verb Syntax</h2>
+<div class="code-block">Syntax:  [lowercase][UPPERCASE][digit]</div>
+<div class="example"><span class="ex-label"></span><span class="ex-content">want → wB6    be → bC9    play → pM5    go → gH1</span></div>
+<h2 class="section-title">5.2 Verb Prefixes</h2>
+<p>Eight common English verb prefixes map to single-character prepend codes:</p>
+<table class="tb-table"><thead><tr><th>Prefix</th><th>Char</th><th>Example</th></tr></thead><tbody><tr><td>mis-</td><td>m</td><td>mislead → dis+lead(lC4) → mlC4</td></tr><tr><td>dis-</td><td>t</td><td>disappear → dis+appear(aN0) → taN0</td></tr><tr><td>over-</td><td>o</td><td>overestimate → over+estimate(eL8) → oeL8</td></tr><tr><td>re-</td><td>r</td><td>redo → re+do(dR2) → rdR2</td></tr><tr><td>pre-</td><td>p</td><td>pretrain → pre+train(tI7) → ptI7</td></tr><tr><td>un-</td><td>u</td><td>uncover → un+cover(cW9) → ucW9</td></tr><tr><td>under-</td><td>d</td><td>underestimate → under+estimate(eL8) → deL8</td></tr><tr><td>out-</td><td>a</td><td>outshine → out+shine(sP0) → asP0</td></tr></tbody></table>
+<h2 class="section-title">5.3 Tense Number System</h2>
+<p>Tense and aspect are encoded as a decimal suffix appended to the base verb code:</p>
+<div class="code-block">verb_code + tense_number  →  e.g.  pM50 (play, simple present)  pM51.0 (played)  pM52.0 (will play)</div>
+<p>The complete tense table:</p>
+<table class="tb-table"><thead><tr><th>Group</th><th>Tense / Aspect</th><th>Code</th><th>Example</th><th>English</th></tr></thead><tbody><tr><td>PRESENT</td><td>Simple Present</td><td>0</td><td>pM50</td><td>I play</td></tr><tr><td></td><td>Present Continuous</td><td>0.1</td><td>pM50.1</td><td>I am playing</td></tr><tr><td></td><td>Present Perfect</td><td>0.2</td><td>pM50.2</td><td>I have played</td></tr><tr><td></td><td>Present Perfect Continuous</td><td>0.3</td><td>pM50.3</td><td>I have been playing</td></tr><tr><td>PRESENT PASSIVE</td><td>Simple Present Passive</td><td>0.4</td><td>pM50.4</td><td>It is played</td></tr><tr><td></td><td>Present Continuous Passive</td><td>0.5</td><td>pM50.5</td><td>It is being played</td></tr><tr><td></td><td>Present Perfect Passive</td><td>0.6</td><td>pM50.6</td><td>It has been played</td></tr><tr><td>PAST</td><td>Simple Past</td><td>1.0</td><td>pM51.0</td><td>I played</td></tr><tr><td></td><td>Past Continuous</td><td>1.1</td><td>pM51.1</td><td>I was playing</td></tr><tr><td></td><td>Past Perfect</td><td>1.2</td><td>pM51.2</td><td>I had played</td></tr><tr><td></td><td>Past Perfect Continuous</td><td>1.3</td><td>pM51.3</td><td>I had been playing</td></tr><tr><td>PAST PASSIVE</td><td>Simple Past Passive</td><td>1.4</td><td>pM51.4</td><td>It was played</td></tr><tr><td></td><td>Past Continuous Passive</td><td>1.5</td><td>pM51.5</td><td>It was being played</td></tr><tr><td></td><td>Past Perfect Passive</td><td>1.6</td><td>pM51.6</td><td>It had been played</td></tr><tr><td>FUTURE</td><td>Simple Future</td><td>2.0</td><td>pM52.0</td><td>I will play</td></tr><tr><td></td><td>Future Continuous</td><td>2.1</td><td>pM52.1</td><td>I will be playing</td></tr><tr><td></td><td>Future Perfect</td><td>2.2</td><td>pM52.2</td><td>I will have played</td></tr><tr><td></td><td>Future Perfect Continuous</td><td>2.3</td><td>pM52.3</td><td>I will have been playing</td></tr><tr><td>FUTURE PASSIVE</td><td>Simple Future Passive</td><td>2.4</td><td>pM52.4</td><td>It will be played</td></tr><tr><td></td><td>Future Perfect Passive</td><td>2.5</td><td>pM52.5</td><td>It will have been played</td></tr><tr><td>SHOULD</td><td>Simple Should</td><td>3.0</td><td>pM53.0</td><td>I should play</td></tr><tr><td></td><td>Should Continuous</td><td>3.1</td><td>pM53.1</td><td>I should be playing</td></tr><tr><td></td><td>Should Perfect</td><td>3.2</td><td>pM53.2</td><td>I should have played</td></tr><tr><td></td><td>Should Perfect Continuous</td><td>3.3</td><td>pM53.3</td><td>I should have been playing</td></tr><tr><td>SHOULD PASSIVE</td><td>Simple Should Passive</td><td>3.4</td><td>pM53.4</td><td>It should be played</td></tr><tr><td></td><td>Should Perfect Passive</td><td>3.6</td><td>pM53.6</td><td>It should have been played</td></tr><tr><td>SHALL</td><td>Simple Shall</td><td>4.0</td><td>pM54.0</td><td>I shall play</td></tr><tr><td></td><td>Shall Continuous</td><td>4.1</td><td>pM54.1</td><td>I shall be playing</td></tr><tr><td></td><td>Shall Perfect</td><td>4.2</td><td>pM54.2</td><td>I shall have played</td></tr><tr><td>SHALL PASSIVE</td><td>Simple Shall Passive</td><td>4.4</td><td>pM54.4</td><td>It shall be played</td></tr><tr><td>MUST</td><td>Simple Must</td><td>5.0</td><td>pM55.0</td><td>I must play</td></tr><tr><td></td><td>Must Continuous</td><td>5.1</td><td>pM55.1</td><td>I must be playing</td></tr><tr><td></td><td>Must Perfect</td><td>5.2</td><td>pM55.2</td><td>I must have played</td></tr><tr><td></td><td>Had to</td><td>5.4</td><td>kC85.4H3</td><td>I had to kill him</td></tr><tr><td></td><td>Will have to</td><td>5.5</td><td>sO95.5U3</td><td>I will have to stop you</td></tr><tr><td>MUST PASSIVE</td><td>Simple Must Passive</td><td>5.6</td><td>pM55.6</td><td>It must be played</td></tr><tr><td>WOULD</td><td>Simple Would</td><td>6.0</td><td>pM56.0</td><td>I would play</td></tr><tr><td></td><td>Would Continuous</td><td>6.1</td><td>pM56.1</td><td>I would be playing</td></tr><tr><td></td><td>Would Perfect</td><td>6.2</td><td>pM56.2</td><td>I would have played</td></tr><tr><td>WOULD PASSIVE</td><td>Simple Would Passive</td><td>6.4</td><td>pM56.4</td><td>It would be played</td></tr><tr><td>COULD</td><td>Simple Could</td><td>7.0</td><td>pM57.0</td><td>I could play</td></tr><tr><td></td><td>Could Continuous</td><td>7.1</td><td>pM57.1</td><td>I could be playing</td></tr><tr><td></td><td>Could Perfect</td><td>7.2</td><td>pM57.2</td><td>I could have played</td></tr><tr><td>COULD PASSIVE</td><td>Could Passive</td><td>7.4</td><td>pM57.4</td><td>It could be played</td></tr><tr><td></td><td>Can Passive</td><td>7.7</td><td>pM57.7</td><td>It can be played</td></tr><tr><td>MAY</td><td>Simple May</td><td>8.0</td><td>pM58.0</td><td>I may play</td></tr><tr><td></td><td>May Continuous</td><td>8.1</td><td>pM58.1</td><td>I may be playing</td></tr><tr><td></td><td>May Perfect</td><td>8.2</td><td>pM58.2</td><td>I may have played</td></tr><tr><td>MAY PASSIVE</td><td>Simple May Passive</td><td>8.4</td><td>pM58.4</td><td>It may be played</td></tr><tr><td>CAN</td><td>Can</td><td>8.9</td><td>pM58.9</td><td>I can play</td></tr><tr><td>MIGHT</td><td>Simple Might</td><td>9.0</td><td>pM59.0</td><td>I might play</td></tr><tr><td></td><td>Might Continuous</td><td>9.1</td><td>pM59.1</td><td>I might be playing</td></tr><tr><td></td><td>Might Perfect</td><td>9.2</td><td>pM59.2</td><td>I might have played</td></tr><tr><td>MIGHT PASSIVE</td><td>Simple Might Passive</td><td>9.4</td><td>pM59.4</td><td>It might be played</td></tr></tbody></table>
+<h2 class="section-title">5.4 Infinitive Form</h2>
+<p>When a verb appears after 'to' (infinitive), write just the base verb code with <strong>no tense number</strong>.</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">I want to go  →  |I1wB60gH1|</span></div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">I wanted to kill you  →  |I1wB61.0kC8U3|</span></div>
+<h2 class="section-title">5.5 'To Keep / Continue' verb-ing  (codes 0.9, 1.7–2.8, etc.)</h2>
+<p>For 'to keep doing' structures, append the keep-code to the main action verb:</p>
+<table class="tb-table"><thead><tr><th>Structure</th><th>Code</th></tr></thead><tbody><tr><td>To keep/continue verb-ing</td><td>0.9</td></tr><tr><td>To have kept verb-ing</td><td>1.9</td></tr><tr><td>To will keep verb-ing</td><td>2.7</td></tr><tr><td>To should keep verb-ing</td><td>3.7</td></tr><tr><td>To could keep verb-ing</td><td>7.8</td></tr><tr><td>To might keep verb-ing</td><td>9.7</td></tr><tr><td>To may keep verb-ing</td><td>8.7</td></tr><tr><td>To would keep verb-ing</td><td>6.7</td></tr><tr><td>To must keep verb-ing</td><td>5.9</td></tr><tr><td>To shall keep verb-ing</td><td>4.7</td></tr></tbody></table>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">I keep forgetting it.  →  |I1fL30.9i3|</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">I will keep reminding you.  →  |I1rH82.7U3|</span></div>
+<h2 class="section-title">5.6 'Used to'  (code 1.88)</h2>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">I used to play.  →  |I1pM51.8|</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">I used to believe he&#x27;s lying.  →  |I1bT01.8H1lF30.1|</span></div>
+<h2 class="section-title">5.7 'Can' &amp; 'To Be Able to'</h2>
+<p>Both 'I can…' and 'I am able to…' share tense code <strong>8.9</strong>:</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">I can play / I am able to play  →  |I1pM58.9|</span></div>
+<h2 class="section-title">5.8 Passive Infinitives</h2>
+<table class="tb-table"><thead><tr><th>Type</th><th>Code</th><th>Example</th></tr></thead><tbody><tr><td>Simple passive infinitive (to be done)</td><td>0.7</td><td>this needs to be done  →  |T11nB70dR20.7|</td></tr><tr><td>Continuous passive infinitive</td><td>9.9</td><td>this needs to be being done  →  |T11nB70dR29.9|</td></tr><tr><td>Perfect passive infinitive (to have been done)</td><td>0.8</td><td>it was expected to have been finished  →  |i1eP11.4fF00.8|</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch6" id="ch6">
+<p class="chapter-num">Chapter 6</p>
+<h1 class="chapter-title">Adjectives &amp; Degrees of Comparison</h1>
+<h2 class="section-title">6.1 Base Adjective Syntax</h2>
+<div class="code-block">Syntax:  [UPPERCASE][lowercase][digit]</div>
+<div class="example"><span class="ex-label"></span><span class="ex-content">beautiful → Bm1    good → Ga0    big → Ba0    simple → Sk7</span></div>
+<h2 class="section-title">6.2 Degrees of Comparison</h2>
+<table class="tb-table"><thead><tr><th>Degree</th><th>Suffix</th><th>Example</th></tr></thead><tbody><tr><td>Positive (base)</td><td>–</td><td>beautiful → Bm1</td></tr><tr><td>Comparative</td><td>+1</td><td>more beautiful → Bm11</td></tr><tr><td>Superlative</td><td>+2</td><td>most beautiful → Bm12</td></tr></tbody></table>
+<div class="example"><span class="ex-label"></span><span class="ex-content">Prettier: Ph11   |   Prettiest: Ph12   |   Bigger: Ba01   |   Biggest: Ba02</span></div>
+<h2 class="section-title">6.3 Participial Adjectives</h2>
+<p>If an adjective derives from a verb (present/past participle), first check the adjective dictionary. If not found:</p>
+<table class="tb-table"><thead><tr><th>Type</th><th>Rule</th><th>Example</th></tr></thead><tbody><tr><td>Present participle (-ing)</td><td>Append tense code 0.1</td><td>exciting (from excite eN5)  →  eN50.1</td></tr><tr><td>Past participle (-ed)</td><td>Append tense code 0.4</td><td>excited  →  eN50.4</td></tr></tbody></table>
+<div class="example"><span class="ex-label"></span><span class="ex-content">Most exciting: eN50.12   |   More excited: eN50.41</span></div>
+<h2 class="section-title">6.4 Compound / Hyphenated Adjectives</h2>
+<table class="tb-table"><thead><tr><th>Compound</th><th>Analysis</th><th>Encoding</th></tr></thead><tbody><tr><td>big-time</td><td>big (adj) + time (noun)</td><td>Ba0(time)</td></tr><tr><td>world-famous</td><td>world (noun) + famous (adj)</td><td>(world)Fa5</td></tr><tr><td>overestimated</td><td>over(o) + estimate(eL8) + past participle</td><td>oeL80.4</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch7" id="ch7">
+<p class="chapter-num">Chapter 7</p>
+<h1 class="chapter-title">Adverbs</h1>
+<h2 class="section-title">7.1 Standard Adverbs</h2>
+<p>Adverbs are formed by enclosing any adjective code in forward-slashes:</p>
+<div class="code-block">Syntax:  /adjective_code/</div>
+<div class="example"><span class="ex-label"></span><span class="ex-content">importantly → /Ie2/    beautifully → /Bm1/    excitingly → /eN50.1/</span></div>
+<div class="note"><span class="note-icon">📌</span>Adverbs are always placed at the <strong>end of the clause</strong>, regardless of English position.</div>
+<h2 class="section-title">7.2 Hard-coded Absolute Adverbs</h2>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>nevertheless</td><td>/JML/</td></tr><tr><td>nonetheless</td><td>/nL/</td></tr><tr><td>regardless</td><td>/rPL/</td></tr><tr><td>anyway / anyways</td><td>/DTF/</td></tr><tr><td>maybe</td><td>/bC98/</td></tr><tr><td>really</td><td>/Ra0/</td></tr><tr><td>specially / especially</td><td>/Sj9/</td></tr><tr><td>very</td><td>/lt/</td></tr><tr><td>indeed</td><td>/id/</td></tr><tr><td>in fact</td><td>/if/</td></tr><tr><td>of course</td><td>/oc/</td></tr><tr><td>likewise</td><td>/lv/</td></tr><tr><td>instead</td><td>/ns/</td></tr><tr><td>quite</td><td>/q/</td></tr><tr><td>ago</td><td>/&amp;lt;/</td></tr><tr><td>somehow</td><td>/mh/</td></tr><tr><td>whatsoever</td><td>/we/</td></tr><tr><td>anymore</td><td>/nm/</td></tr><tr><td>rather</td><td>/rd/</td></tr><tr><td>as well as</td><td>/zv/</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch8" id="ch8">
+<p class="chapter-num">Chapter 8</p>
+<h1 class="chapter-title">Prepositions</h1>
+<p>MIN-0 represents prepositions with symbolic characters to keep codes compact:</p>
+<table class="tb-table"><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>/o/</td><td>under / beneath</td></tr><tr><td>↥</td><td>above</td></tr><tr><td>↧</td><td>underneath</td></tr><tr><td>+</td><td>in</td></tr><tr><td>o/</td><td>on</td></tr><tr><td>𝝝</td><td>around</td></tr><tr><td>│O│</td><td>between</td></tr><tr><td>(O)</td><td>among</td></tr><tr><td>│-&amp;gt;</td><td>from</td></tr><tr><td>-&amp;gt;│</td><td>to</td></tr><tr><td>&amp;lt;-&amp;gt;</td><td>of</td></tr><tr><td>!</td><td>at</td></tr><tr><td>=</td><td>along</td></tr><tr><td>≠</td><td>across</td></tr><tr><td>*</td><td>with</td></tr><tr><td>∞</td><td>beyond</td></tr><tr><td>~/</td><td>over</td></tr><tr><td>-)</td><td>through</td></tr><tr><td>-)−</td><td>throughout</td></tr><tr><td>O-</td><td>beside / besides</td></tr><tr><td>-O</td><td>alongside</td></tr><tr><td>-(</td><td>behind</td></tr><tr><td>-&amp;gt;</td><td>after</td></tr><tr><td>()</td><td>about</td></tr><tr><td>&amp;lt;-</td><td>before</td></tr><tr><td>O-&amp;gt;</td><td>by</td></tr><tr><td>O-O</td><td>during</td></tr><tr><td>/!</td><td>for</td></tr><tr><td>o│o</td><td>near</td></tr><tr><td>+/</td><td>out</td></tr><tr><td>!-&amp;gt;</td><td>since</td></tr><tr><td>-&amp;gt;!</td><td>until / till</td></tr><tr><td>*/</td><td>without</td></tr><tr><td>(*)</td><td>within</td></tr><tr><td>!/</td><td>in front of</td></tr><tr><td>O&amp;lt;-</td><td>into</td></tr><tr><td>-&amp;gt;O</td><td>onto</td></tr><tr><td>&amp;gt;&amp;lt;</td><td>against</td></tr><tr><td>&amp;amp;</td><td>and</td></tr><tr><td>/~/</td><td>or</td></tr><tr><td>\~\</td><td>nor</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch9" id="ch9">
+<p class="chapter-num">Chapter 9</p>
+<h1 class="chapter-title">Conjunctions &amp; Connectors</h1>
+<p>Conjunctions are written as <code>(symbol)</code>:</p>
+<table class="tb-table"><thead><tr><th>Code</th><th>Meaning</th></tr></thead><tbody><tr><td>(c)</td><td>because</td></tr><tr><td>(y)</td><td>yet</td></tr><tr><td>(!)</td><td>still</td></tr><tr><td>(-)</td><td>so</td></tr><tr><td>(t)</td><td>then</td></tr><tr><td>(?)</td><td>but</td></tr><tr><td>(d)</td><td>though</td></tr><tr><td>(ld)</td><td>although</td></tr><tr><td>(ed)</td><td>even though</td></tr><tr><td>(I)</td><td>if / whether</td></tr><tr><td>(E/)</td><td>either</td></tr><tr><td>(N/)</td><td>neither</td></tr><tr><td>(ha)</td><td>however</td></tr><tr><td>(th)</td><td>thus</td></tr><tr><td>(hn)</td><td>hence</td></tr><tr><td>(tf)</td><td>therefore</td></tr><tr><td>(z)</td><td>as</td></tr><tr><td>(l)</td><td>like</td></tr><tr><td>(vh)</td><td>while</td></tr><tr><td>(vz)</td><td>whereas</td></tr><tr><td>(al)</td><td>unless</td></tr><tr><td>(st)</td><td>so that</td></tr><tr><td>(2)</td><td>too / as well</td></tr><tr><td>(as)</td><td>also</td></tr><tr><td>(e)</td><td>even</td></tr><tr><td>(dn)</td><td>than</td></tr><tr><td>(dp)</td><td>despite</td></tr><tr><td>(ip)</td><td>in spite</td></tr></tbody></table>
+<div class="note"><span class="note-icon">📌</span>T21 (that) doubles as a conjunction.</div>
+</div>
+<div class="chapter-block" data-anchor="ch10" id="ch10">
+<p class="chapter-num">Chapter 10</p>
+<h1 class="chapter-title">Interrogatives</h1>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>What</td><td>?n</td></tr><tr><td>Why</td><td>?r</td></tr><tr><td>Where</td><td>?l</td></tr><tr><td>When</td><td>?t</td></tr><tr><td>How</td><td>?w</td></tr><tr><td>Who</td><td>?p</td></tr><tr><td>Whose</td><td>?pn</td></tr><tr><td>Whom</td><td>?pp</td></tr><tr><td>Which</td><td>?c</td></tr><tr><td>How come?</td><td>?wc</td></tr><tr><td>Whatever</td><td>?dc</td></tr><tr><td>Whichever</td><td>?cd</td></tr><tr><td>Whoever</td><td>?dp</td></tr><tr><td>Whenever</td><td>?dt</td></tr><tr><td>Wherever</td><td>?dl</td></tr><tr><td>How much?</td><td>?wmc</td></tr><tr><td>How many?</td><td>?wme</td></tr></tbody></table>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">where are you going?  →  ?lU1gH10.1?</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">Who are you?  →  ?pU1bC90?</span></div>
+<div class="example"><span class="ex-label">Eg 3:</span><span class="ex-content">Are you playing?  →  ?U1pM50.1?</span></div>
+</div>
+<div class="chapter-block" data-anchor="ch11" id="ch11">
+<p class="chapter-num">Chapter 11</p>
+<h1 class="chapter-title">Quantifiers, Intensifiers &amp; Descriptors</h1>
+<h2 class="section-title">11.1 Quantifiers</h2>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>All</td><td>ol</td></tr><tr><td>Some</td><td>sm</td></tr><tr><td>Someone</td><td>s1</td></tr><tr><td>Something</td><td>st</td></tr><tr><td>Any</td><td>ne</td></tr><tr><td>Anyone</td><td>ne1</td></tr><tr><td>Anything</td><td>at</td></tr><tr><td>None</td><td>nn</td></tr><tr><td>No-one / Nobody</td><td>n1</td></tr><tr><td>Nothing</td><td>nt</td></tr><tr><td>Each</td><td>ec</td></tr><tr><td>Every</td><td>er</td></tr><tr><td>Everyone</td><td>er1</td></tr><tr><td>A lot of</td><td>lt</td></tr><tr><td>Plenty</td><td>pt</td></tr><tr><td>Numerous</td><td>nr</td></tr><tr><td>Few</td><td>fv</td></tr><tr><td>Several</td><td>sv</td></tr><tr><td>Much</td><td>mc</td></tr><tr><td>Most</td><td>ms</td></tr><tr><td>Almost</td><td>am</td></tr></tbody></table>
+<h2 class="section-title">11.2 Intensifiers</h2>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>So</td><td>S</td></tr><tr><td>Too</td><td>T</td></tr><tr><td>Enough</td><td>E</td></tr><tr><td>Very</td><td>V</td></tr><tr><td>Extra</td><td>X</td></tr></tbody></table>
+<h2 class="section-title">11.3 Time &amp; Place Descriptors</h2>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>now</td><td>NV</td></tr><tr><td>right now</td><td>RN</td></tr><tr><td>here</td><td>HR</td></tr><tr><td>there</td><td>TR</td></tr><tr><td>often</td><td>OF</td></tr><tr><td>sometimes</td><td>ST</td></tr><tr><td>always</td><td>AV</td></tr><tr><td>everytime</td><td>ET</td></tr><tr><td>never</td><td>JM</td></tr><tr><td>already</td><td>AR</td></tr><tr><td>soon</td><td>SN</td></tr><tr><td>later</td><td>LT</td></tr><tr><td>ever</td><td>EV</td></tr><tr><td>afterwards</td><td>AW</td></tr><tr><td>eventually</td><td>EU</td></tr><tr><td>usually</td><td>UZ</td></tr><tr><td>again</td><td>AG</td></tr><tr><td>everywhere</td><td>EW</td></tr><tr><td>somewhere</td><td>SW</td></tr><tr><td>nowhere</td><td>NW</td></tr><tr><td>back</td><td>BK</td></tr><tr><td>away</td><td>AY</td></tr><tr><td>inside</td><td>IS</td></tr><tr><td>outside</td><td>OS</td></tr><tr><td>up</td><td>U</td></tr><tr><td>down</td><td>DN</td></tr><tr><td>below</td><td>BL</td></tr><tr><td>right</td><td>RT</td></tr><tr><td>left</td><td>LF</td></tr><tr><td>straight</td><td>SA</td></tr><tr><td>today</td><td>TD</td></tr><tr><td>tomorrow</td><td>TM</td></tr><tr><td>yesterday</td><td>YD</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch12" id="ch12">
+<p class="chapter-num">Chapter 12</p>
+<h1 class="chapter-title">Quantitative Descriptors (Numbers)</h1>
+<h2 class="section-title">12.1 Written Numbers</h2>
+<p>Apply the same 6-step noun encoding to written numbers (one, two, three…).</p>
+<h2 class="section-title">12.2 Numeric Values (1, 2, 3…)</h2>
+<table class="tb-table"><thead><tr><th>Step</th><th>Operation</th></tr></thead><tbody><tr><td>Step 1</td><td>Map each digit to its letter: 1=a, 2=b, … 9=i, 0=j</td></tr><tr><td>Step 2</td><td>Increment each letter by 1 (a→b)</td></tr><tr><td>Step 3</td><td>Decrement each letter by 2 (b→z)</td></tr><tr><td>Step 4</td><td>Increment each letter by 5 (z→e)</td></tr><tr><td>Step 5</td><td>Decrement each letter by 12 (e→s)</td></tr><tr><td>Step 6</td><td>Enclose in curly braces: {result}</td></tr></tbody></table>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">3467  →  {uvxy}</span></div>
+<h2 class="section-title">12.3 Ordinal Numbers</h2>
+<div class="code-block">Syntax:  O[n]   →   first=O1, second=O2, third=O3 …</div>
+<h2 class="section-title">12.4 Multiplicative Descriptors</h2>
+<div class="code-block">Syntax:  M[n]   →   single=M1, double=M2, triple=M3 …</div>
+<h2 class="section-title">12.5 Iterative Numerals</h2>
+<div class="code-block">Syntax:  T[n]   →   once=T1, twice=T2, thrice=T3, four times=T4 …</div>
+</div>
+<div class="chapter-block" data-anchor="ch13" id="ch13">
+<p class="chapter-num">Chapter 13</p>
+<h1 class="chapter-title">Sentence Structure Rules</h1>
+<h2 class="section-title">13.1 Sentence Boundaries</h2>
+<p>Every complete sentence is enclosed in pipe characters:</p>
+<div class="code-block">|sentence content|</div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">She is beautiful.  →  |S1bC90Bm1|</span></div>
+<h2 class="section-title">13.2 Comma</h2>
+<div class="code-block">Syntax:  clause1..clause2</div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">|I1b11Gu1..Gu2&amp;Hp1|  →  I am good, nice and happy</span></div>
+<h2 class="section-title">13.3 Adverb Position</h2>
+<div class="note"><span class="note-icon">📌</span>In MIN-0, adverbs are <strong>always written at the end of the clause</strong>, regardless of their English position.</div>
+<h2 class="section-title">13.4 'Just' Interpretation</h2>
+<table class="tb-table"><thead><tr><th>Pattern</th><th>Treatment</th><th>Example</th></tr></thead><tbody><tr><td>subject + just + verb (present)</td><td>Treat as &#x27;simply&#x27;</td><td>I just think that → I simply think that</td></tr><tr><td>subject + just + past verb</td><td>Treat as &#x27;right now&#x27; (RN)</td><td>I just came here → |I1cL41.0HRRN|</td></tr></tbody></table>
+<h2 class="section-title">13.5 'Supposed to'</h2>
+<p>In 'to be supposed to', 'supposed' is a past-participle adjective. Conjugate only 'to be' per pronoun.</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">I&#x27;m not supposed to tell you.  →  |I1~bC90Zb40.2tC3U3|</span></div>
+<h2 class="section-title">13.6 'Ain't'</h2>
+<table class="tb-table"><thead><tr><th>Ain't sentence</th><th>Interpretation</th><th>Standard form</th></tr></thead><tbody><tr><td>I ain&#x27;t doing it</td><td>be + not</td><td>I am not doing it</td></tr><tr><td>I ain&#x27;t done anything</td><td>have + not</td><td>I haven&#x27;t done anything</td></tr><tr><td>He ain&#x27;t do that</td><td>do + not</td><td>He didn&#x27;t do that</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch14" id="ch14">
+<p class="chapter-num">Chapter 14</p>
+<h1 class="chapter-title">Punctuation Rules</h1>
+<table class="tb-table"><thead><tr><th>Mark</th><th>Syntax</th><th>Example</th></tr></thead><tbody><tr><td>Full Stop</td><td>| … |</td><td>Sentence enclosed in pipes</td></tr><tr><td>Comma</td><td>..</td><td>clause1..clause2</td></tr><tr><td>Semi-colon</td><td>_</td><td>clause1_clause2</td></tr><tr><td>Colon</td><td>__</td><td>statement__explanation</td></tr><tr><td>Exclamation</td><td>O … O</td><td>OmessageO</td></tr><tr><td>Question</td><td>? … ?</td><td>?messagecontents?</td></tr><tr><td>Quotation</td><td># … #  or  &lt;&lt; … &gt;&gt;</td><td>#|statement|# or #?question?#</td></tr><tr><td>Request</td><td>/ … \</td><td>/verb content\</td></tr></tbody></table>
+<h2 class="section-title">14.1 Quotation — Special Types Inside Quotes</h2>
+<div class="example"><span class="ex-label">Statement:</span><span class="ex-content">#|I1bC90(t-zbsxmo)|#  →  &quot;I am the prince.&quot;</span></div>
+<div class="example"><span class="ex-label">Exclamation:</span><span class="ex-content">#OI1bC90[wkxsbyx]O#  →  &quot;I am Ironman!&quot;</span></div>
+<div class="example"><span class="ex-label">Question:</span><span class="ex-content">#?nU1dR20.1HR?#  →  &quot;what are you doing here?&quot;</span></div>
+</div>
+<div class="chapter-block" data-anchor="ch15" id="ch15">
+<p class="chapter-num">Chapter 15</p>
+<h1 class="chapter-title">Negation</h1>
+<h2 class="section-title">15.1 Basic Rule</h2>
+<p>Add <code>~</code> immediately before the first verb in the sentence:</p>
+<div class="example"><span class="ex-label">Positive:</span><span class="ex-content">she is beautiful  →  S1bC90Bm1</span></div>
+<div class="example"><span class="ex-label">Negative:</span><span class="ex-content">she is not beautiful  →  S1~bC90Bm1</span></div>
+<div class="example"><span class="ex-label">Two-verb:</span><span class="ex-content">I don&#x27;t want to go  →  |I1~wB60gH1|</span></div>
+<h2 class="section-title">15.2 Contraction Equivalents</h2>
+<p>All contractions are encoded identically to their full forms (won't = will not, can't = cannot, etc.).</p>
+</div>
+<div class="chapter-block" data-anchor="ch16" id="ch16">
+<p class="chapter-num">Chapter 16</p>
+<h1 class="chapter-title">Imperative Sentences</h1>
+<h2 class="section-title">16.1 Commands / Orders</h2>
+<p>Start directly with the verb code, no subject, no tense number, enclosed in <code>|…|</code>:</p>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">Kill him!  →  |kC8H3|</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">don&#x27;t call it pretty!  →  |~cA4i3Bm1|</span></div>
+<h2 class="section-title">16.2 Requests (Please…)</h2>
+<p>Enclosed between <code>/</code> and <code>\</code>. No tense number on the verb:</p>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">Please sleep  →  /sQ9\</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">Please don&#x27;t sleep  →  /~sQ9\</span></div>
+<div class="example"><span class="ex-label">Eg 3:</span><span class="ex-content">Please tell me how to solve it  →  /tC3I3?wsC1i3\</span></div>
+</div>
+<div class="chapter-block" data-anchor="ch17" id="ch17">
+<p class="chapter-num">Chapter 17</p>
+<h1 class="chapter-title">Interrogative Sentences &amp; Question Tags</h1>
+<h2 class="section-title">17.1 Questions with Interrogative Pronouns</h2>
+<p>When a sentence starts with an interrogative pronoun (which already contains '?'), add only a closing '?':</p>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">where are you going?  →  ?lU1gH10.1?</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">Who are you?  →  ?pU1bC90?</span></div>
+<h2 class="section-title">17.2 Yes/No Questions</h2>
+<p>Surround with '?' at both ends:</p>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">Are you playing?  →  ?U1pM50.1?</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">Will you kill me?  →  ?U1kC82.0I3?</span></div>
+<h2 class="section-title">17.3 Question Tags</h2>
+<p>All question tags are replaced with the adjective code for 'right' (<code>Ri5</code>), enclosed in '?' markers:</p>
+<div class="code-block">..Ri5?   (appended after &#x27;..&#x27; at the clause boundary)</div>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">You are studying, aren&#x27;t you?  →  ?U1sP40.1..Ri5?</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">You won&#x27;t kill him, will you?  →  ?U1kC82.0H3..Ri5?</span></div>
+</div>
+<div class="chapter-block" data-anchor="ch18" id="ch18">
+<p class="chapter-num">Chapter 18</p>
+<h1 class="chapter-title">Affirmations &amp; Rejections</h1>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>Yes / Yep / Yeah / Yup</td><td>UU</td></tr><tr><td>No / Nope / Nah / Neh</td><td>XX</td></tr></tbody></table>
+<div class="example"><span class="ex-label">Eg 1:</span><span class="ex-content">Yes, I am young  →  |UU..I1bC90Ya7|</span></div>
+<div class="example"><span class="ex-label">Eg 2:</span><span class="ex-content">No, I don&#x27;t want to talk  →  |XX..I1~wB60tA5|</span></div>
+</div>
+<div class="chapter-block" data-anchor="ch19" id="ch19">
+<p class="chapter-num">Chapter 19</p>
+<h1 class="chapter-title">Passive Voice</h1>
+<p>Passive voice in MIN-0 is encoded entirely through the tense number system. The passive tense numbers are the <code>.4</code>, <code>.5</code>, and <code>.6</code> variants within each modal/tense group (see Chapter 5).</p>
+<table class="tb-table"><thead><tr><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>It is needed</td><td>i1nB70.4</td></tr><tr><td>The road is being repaired right now</td><td>(t-road)rpB10.5Ri5NV</td></tr><tr><td>All the cookies have been eaten</td><td>ol(t-cookies)eA10.6</td></tr><tr><td>It was written in the past</td><td>i1wI41.4+(t-past)</td></tr><tr><td>The project had been finished before the deadline</td><td>(t-project)fF01.6&lt;-(t-deadline)</td></tr><tr><td>The decision will be made next week</td><td>(t-decision)mA62.4Na5(week)</td></tr><tr><td>The kitchen must be cleaned</td><td>(t-kitchen)kF55.4</td></tr><tr><td>The package can be delivered tomorrow</td><td>(t-package)dG37.7TM</td></tr></tbody></table>
+</div>
+<div class="chapter-block" data-anchor="ch20" id="ch20">
+<p class="chapter-num">Chapter 20</p>
+<h1 class="chapter-title">Special Constructs &amp; Edge Cases</h1>
+<h2 class="section-title">20.1 'There is / There are'</h2>
+<p>Use TR (there) as the subject:</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">There is time  →  |TRbC90.0(wods)|</span></div>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">There is no time  →  |TR~bC90.0(wods)|</span></div>
+<h2 class="section-title">20.2 'Going to' vs. 'Was going to'</h2>
+<p>'Going to' as a future marker = simple future (2.0). 'Was going to' = past continuous of 'go' + infinitive.</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">I was going to play  →  |I1gH10.1pM5|</span></div>
+<h2 class="section-title">20.3 Sentence with Direct Speech</h2>
+<p>Commands inside a sentence use the imperative verb-first rule without separate notation. Requests mid-sentence get <code>/…\</code> wrapping:</p>
+<div class="example"><span class="ex-label">Request:</span><span class="ex-content">if you have something, please let me know.  →  |(I)U1hD5st../lE3I3kE9\|</span></div>
+<h2 class="section-title">20.4 Highly Complex Compound Verbs</h2>
+<p>'To keep getting used to' = 'to keep verb-ing' + 'to get used to'. Encode each structure separately.</p>
+<div class="example"><span class="ex-label">Example:</span><span class="ex-content">I keep getting used to forgetting this  →  |I1gD80.9fL31.80T11|</span></div>
+</div>
+<div class="chapter-block" data-anchor="appa" id="appa">
+<p class="chapter-num">Appendix A</p>
+<h1 class="chapter-title">Quick Reference</h1>
+<h2 class="section-title">A.1 Pronoun Master Table</h2>
+<table class="tb-table"><thead><tr><th>Type</th><th>English</th><th>MIN-0</th></tr></thead><tbody><tr><td>Personal</td><td>I, You, He, She, They, We, It</td><td>I1, U1, H1, S1, T1, V1, i1</td></tr><tr><td>Possessive</td><td>My, Your, His, Her, Their, Our, Its</td><td>I2, U2, H2, S2, T2, V2, i2</td></tr><tr><td>Object</td><td>Me, You, Him, Her, Them, Us, It</td><td>I3, U3, H3, S3, T3, V3, i3</td></tr><tr><td>Reflexive</td><td>Myself … Itself, Oneself</td><td>I0, U0, H0, S0, T0, V0, i0, O0</td></tr><tr><td>Demonstrative</td><td>this, these, that, those</td><td>T11, T12, T21, T22</td></tr><tr><td>Reciprocal</td><td>each other, one another</td><td>e0, 1o</td></tr></tbody></table>
+<h2 class="section-title">A.2 Tense Quick Reference</h2>
+<table class="tb-table"><thead><tr><th>Tense</th><th>Code</th></tr></thead><tbody><tr><td>Simple Present</td><td>0</td></tr><tr><td>Present Continuous</td><td>0.1</td></tr><tr><td>Present Perfect</td><td>0.2</td></tr><tr><td>Simple Past</td><td>1.0</td></tr><tr><td>Past Continuous</td><td>1.1</td></tr><tr><td>Past Perfect</td><td>1.2</td></tr><tr><td>Simple Future</td><td>2.0</td></tr><tr><td>Future Continuous</td><td>2.1</td></tr><tr><td>Future Perfect</td><td>2.2</td></tr><tr><td>Should (all forms)</td><td>3.x</td></tr><tr><td>Shall</td><td>4.x</td></tr><tr><td>Must / Have to</td><td>5.x</td></tr><tr><td>Would</td><td>6.x</td></tr><tr><td>Could</td><td>7.x</td></tr><tr><td>May</td><td>8.x</td></tr><tr><td>Can</td><td>8.9</td></tr><tr><td>Might</td><td>9.x</td></tr><tr><td>Passive suffix</td><td>.4 / .5 / .6 within each group</td></tr></tbody></table>
+<h2 class="section-title">A.3 Sentence Wrappers</h2>
+<table class="tb-table"><thead><tr><th>Type</th><th>Syntax</th></tr></thead><tbody><tr><td>Normal sentence</td><td>| … |</td></tr><tr><td>Question</td><td>? … ?</td></tr><tr><td>Exclamation</td><td>O … O</td></tr><tr><td>Request</td><td>/ … \</td></tr><tr><td>Quotation</td><td># … #  or  &lt;&lt; … &gt;&gt;</td></tr><tr><td>Comma</td><td>..</td></tr><tr><td>Semicolon</td><td>_</td></tr><tr><td>Colon</td><td>__</td></tr><tr><td>Noun</td><td>( … )</td></tr><tr><td>Proper Noun</td><td>[ … ]</td></tr><tr><td>Number</td><td>{ … }</td></tr><tr><td>Adverb</td><td>/ code /</td></tr></tbody></table>
+</div>
+
+</main>
+</div>
+<footer>
+  <span class="footer-brand">MIN-0</span>
+  <span class="footer-note">Constructed language of planet RB-0 · First Edition</span>
+</footer>
+<script src="script.js"></script>
+</body></html>
